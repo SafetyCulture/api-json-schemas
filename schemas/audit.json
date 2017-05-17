@@ -1,0 +1,373 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://api.safetyculture.io/schemas/audit.json",
+  "title": "iAuditor Audit API",
+  "type": "object",
+  "required": [
+    "template_id",
+    "audit_id",
+    "created_at",
+    "modified_at",
+    "audit_data",
+    "template_data",
+    "header_items",
+    "items"
+  ],
+  "properties": {
+    "template_id": {
+      "$ref": "definitions.json#/template_id"
+    },
+    "audit_id": {
+      "$ref": "definitions.json#/audit_id"
+    },
+    "archived": {
+      "type": "boolean"
+    },
+    "created_at": {
+      "title": "",
+      "description": "",
+      "type": "string",
+      "format": "date-time"
+    },
+    "modified_at": {
+      "title": "",
+      "description": "",
+      "type": "string",
+      "format": "date-time"
+    },
+    "audit_data": {
+      "title": "",
+      "description": "",
+      "$ref": "#/definitions/audit_data"
+    },
+    "template_data": {
+      "title": "",
+      "description": "",
+      "$ref": "#/definitions/template_data"
+    },
+    "header_items": {
+      "title": "",
+      "description": "",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/audit_item"
+      }
+    },
+    "items": {
+      "title": "",
+      "description": "",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/audit_item"
+      }
+    }
+  },
+  "definitions": {
+    "audit_data": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number"
+        },
+        "total_score": {
+          "type": "number"
+        },
+        "score_percentage": {
+          "type": "number"
+        },
+        "duration": {
+          "type": "number"
+        },
+        "date_modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "date_started": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "date_completed": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "authorship": {
+          "$ref": "#/definitions/authorship"
+        },
+        "location": {
+          "$ref": "#/definitions/location"
+        }
+      }
+    },
+    "template_data": {
+      "type": "object",
+      "properties": {
+        "authorship": {
+          "$ref": "#/definitions/authorship"
+        },
+        "response_sets": {
+          "$ref": "definitions.json#/response_sets"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Template metadata",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The display and report name of the template"
+            },
+            "description": {
+              "type": "string",
+              "description": "Description of the template"
+            },
+            "image": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/definitions/media_item"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "authorship": {
+      "type": "object",
+      "properties": {
+        "owner": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "device_id": {
+          "type": "string"
+        }
+      }
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "started": {
+          "type": "object",
+          "properties": {
+            "accuracy": {
+              "type": "number"
+            },
+            "geometry": {
+              "$ref": "geometry.json#"
+            }
+          }
+        },
+        "completed": {
+          "type": "object",
+          "properties": {
+            "accuracy": {
+              "type": "number"
+            },
+            "geometry": {
+              "$ref": "geometry.json#"
+            }
+          }
+        }
+      }
+    },
+    "media_item": {
+      "type": "object",
+      "required": [
+        "media_id"
+      ],
+      "properties": {
+        "date_created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "file_ext": {
+          "type": "string"
+        },
+        "media_id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "href": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "audit_item": {
+      "allOf": [
+        {
+          "$ref": "definitions.json#/template_audit_item"
+        }
+      ],
+      "required": [
+        "label",
+        "item_id",
+        "type"
+      ],
+      "properties": {
+        "options": {},
+        "label": {
+          "type": "string"
+        },
+        "item_id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "parent_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "responses": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string"
+            },
+            "value": {
+              "type": [
+                "string",
+                "number"
+              ]
+            },
+            "name": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            },
+            "datetime": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date-time"
+            },
+            "location": {
+              "type": "object",
+              "properties": {
+                "iso_country_code": {
+                  "type": "string"
+                },
+                "administrative_area": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "thoroughfare": {
+                  "type": "string"
+                },
+                "locality": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "sub_administrative_area": {
+                  "type": "string"
+                },
+                "postal_code": {
+                  "type": "string"
+                },
+                "formatted_address": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "sub_locality": {
+                  "type": "string"
+                },
+                "sub_thoroughfare": {
+                  "type": "string"
+                },
+                "geometry": {
+                  "$ref": "geometry.json#"
+                }
+              }
+            },
+            "location_text": {
+              "type": "string"
+            },
+            "selected": {
+              "type": "array",
+              "items": {
+                "$ref": "definitions.json#/response_set_response"
+              }
+            },
+            "weather": {
+              "$ref": "definitions.json#/weather_response"
+            },
+            "assets": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "media": {
+          "type": "array",
+          "items": {
+            "$ref": "definitions.json#/media_item"
+          }
+        },
+        "inactive": {
+          "type": "boolean"
+        },
+        "evaluation": {
+          "type": "boolean"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scoring": {
+          "type": "object",
+          "properties": {
+            "score": {
+              "type": "number"
+            },
+            "max_score": {
+              "type": "number"
+            },
+            "score_percentage": {
+              "type": "number"
+            },
+            "combined_score": {
+              "type": "number"
+            },
+            "combined_max_score": {
+              "type": "number"
+            },
+            "combined_score_percentage": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+  }
+}
