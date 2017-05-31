@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "https://api.safetyculture.io/schemas/audit.json",
-  "title": "iAuditor Audit API",
+  "title": "SafetyCulture API Audit Schema",
   "type": "object",
   "required": [
     "template_id",
