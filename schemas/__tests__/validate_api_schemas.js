@@ -2,7 +2,7 @@ const _ = require('lodash');
 const expect = require('chai').expect;
 const requireAll = require('require-all');
 const path = require('path');
-const validateApiAudit = require('../../');
+const validateApiAudit = require('./');
 
 describe('fails validation for invalid audits', () => {
   const fixtureAudits = requireAll(path.join(__dirname, '/fixtures/fail'));

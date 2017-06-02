@@ -4,8 +4,8 @@ function createValidator() {
   let validator = new Validator();
 
   const SCHEMAS = [
-    './schemas/definitions.json',
-    './schemas/geometry.json'
+    '../../schemas/definitions.json',
+    '../../schemas/geometry.json'
   ];
 
   SCHEMAS.forEach((schema) => {
@@ -27,5 +27,5 @@ module.exports = function (doc, options) {
   }
 
   let validator = createValidator();
-  return validator.validate(doc, require('./schemas/audit.json'), options);
+  return validator.validate(doc, require('../../schemas/audit.json'), options);
 };
