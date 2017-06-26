@@ -8,15 +8,15 @@ npm install @safetyculture/api-json-schemas
 ```
 
 ```js
-const validateApiAudit = require('@safetyculture/api-json-schemas');
+const safetyCultureApiJsonSchemas = require('@safetyculture/api-json-schemas');
 
-var result = validateApiAudit(require('./api-audit.json'), options);
-console.log(result.errors);
+// Outputs the audit public JSON schema
+console.log(safetyCultureApiJsonSchemas.audit);
+
+// Outputs common definition schemas used in the audit public JSON schema
+console.log(safetyCultureApiJsonSchemas.definitions);
+
+// Outputs the geometry schema used to represent audit location properties
+console.log(safetyCultureApiJsonSchemas.geometry);
+
 ```
-
-Possible `options` are:
-* propertyName
-* base
-* skipAttributes
-* allowUnknownAttributes
-* rewrite

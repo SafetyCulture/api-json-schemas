@@ -2,16 +2,9 @@
   "name": "@safetyculture/api-json-schemas",
   "version": "1.0.0",
   "description": "SafetyCulture API JSON schemas",
-  "scripts": {
-    "test": "jest",
-    "coverage": "./node_modules/.bin/istanbul cover --report html _mocha -- --compilers js:babel-core/register",
-    "prepublish": "npm run compile",
-    "lint": "eslint ./lib",
-    "doc": "jsdoc lib"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SafetyCulture/JSON-Schemas.git"
+    "url": "git+https://github.com/SafetyCulture/api-json-schemas.git"
   },
   "keywords": [
     "json",
@@ -21,13 +14,5 @@
   "license": "(C) SafetyCulture Pty Ltd",
   "dependencies": {
     "jsonschema": "~1.1.0"
-  },
-  "devDependencies": {
-    "chai": "~3.5.0",
-    "chai-as-promised": "~5.2.0",
-    "eslint": "~1.10.3",
-    "jest": "^20.0.4",
-    "lodash": "^4.17.4",
-    "require-all": "^2.2.0"
   }
 }
