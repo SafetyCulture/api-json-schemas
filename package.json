@@ -1,0 +1,18 @@
+{
+  "name": "@safetyculture/api-json-schemas",
+  "version": "1.0.0",
+  "description": "SafetyCulture API JSON schemas",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SafetyCulture/api-json-schemas.git"
+  },
+  "keywords": [
+    "json",
+    "schema"
+  ],
+  "author": "",
+  "license": "(C) SafetyCulture Pty Ltd",
+  "dependencies": {
+    "jsonschema": "~1.1.0"
+  }
+}
