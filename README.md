@@ -1,6 +1,12 @@
 SafetyCulture API JSON schemas
 ==============================
 
+JSON schemas of data structures exposed by the SafetyCulture public API.
+
+They are useful e.g. to integrators wishing to validate data exported by the SafetyCulture API.
+
+For more details see the SafetyCulture [developer portal](https://developer.safetyculture.io).
+
 ## Usage
 
 ```sh
