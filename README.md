@@ -49,7 +49,7 @@ function createValidator() {
  *
  * @param doc {Object} to check
  * @param options {Object} see json-schema.org for configuration options
- * @return {ValidatorResult} the result of validation against the schema (see 
+ * @return {ValidatorResult} the result of validation against the schema (see the jsonschema NPM module for details)
  */
 module.exports = function validate(doc, options) {
   if (!doc || typeof doc !== 'object') {
