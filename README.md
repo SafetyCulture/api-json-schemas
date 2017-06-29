@@ -46,13 +46,14 @@ function createValidator() {
 
 /**
  * Checks if 'doc' is in a valid API audit JSON format.
+ *
  * @param doc {Object} to check
  * @param options {Object} see json-schema.org for configuration options
- * @return {void|ValidatorResult|Array} true if the 'doc' is valid
+ * @return {ValidatorResult} the result of validation against the schema (see 
  */
 module.exports = function validate(doc, options) {
   if (!doc || typeof doc !== 'object') {
-    throw new Error('Input to validateApiAudit is not an object');
+    throw new Error('Input to API schema validation function is not an object');
   }
 
   const validator = createValidator();
