@@ -101,6 +101,9 @@
         },
         "location": {
           "$ref": "#/definitions/location"
+        },
+        "site": {
+          "$ref": "#/definitions/site"
         }
       }
     },
@@ -175,6 +178,30 @@
             },
             "geometry": {
               "$ref": "geometry.json#"
+            }
+          }
+        }
+      }
+    },
+    "site": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "area": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          }
+        },
+        "region": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
             }
           }
         }
