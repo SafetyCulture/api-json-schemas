@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.safetyculture.io/schemas/geometry.json#",
+  "id": "https://developer.safetyculture.io/schemas/geometry.json#",
   "title": "geometry",
   "description": "One geometry as defined by GeoJSON",
   "type": "object",

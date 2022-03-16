@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "https://api.safetyculture.io/schemas/definitions.json",
+  "id": "https://developer.safetyculture.io/schemas/definitions.json",
   "template_id": {
     "title": "The template unique identifier",
     "description": "",
